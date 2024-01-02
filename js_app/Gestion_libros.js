@@ -5,40 +5,41 @@ class Gestion_libros extends GestionEntidad{
     // formularios
 
     static async createForm_ADD(){
-    /*
+    
         // resetear el formulario
         // hemos hecho una modificación de manera que cargamos el contenido del formulario desde su html cada vez que lo preparamos para una accion
         // obviamente es dependiente de la entidad y por lo tanto no esta en la superclase
         this.recargarform();
-
+        
         // rellenar titulo formulario
         // usamos className mientras no tenemos que utilizar clases de css puesto que borra todos los class del elemento
         document.querySelector(".class_contenido_titulo_form").className = "class_contenido_titulo_form titulo_form_ADD_persona"; 
 
         // se rellena el action del formulario
-        document.getElementById('IU_form').action = 'javascript:Gestion_personas.ADD();';
-        document.getElementById('IU_form').setAttribute('onsubmit', 'return Gestion_personas.comprobar_submit();');
-
+        document.getElementById('IU_form').action = 'javascript:Gestion_libros.ADD();';
+        document.getElementById('IU_form').setAttribute('onsubmit', 'return Gestion_libros.comprobar_submit();');
+        
+        /*
         // se coloca el onblur del dni y se pone a vacio el valor (o podriamos hacerlo en el resetearformusuario())
-        document.getElementById('cod').setAttribute('onblur', 'Gestion_personas.comprobar_dni()');
+        document.getElementById('cod').setAttribute('onblur', 'Gestion_libros.comprobar_dni()');
 
         // se coloca el onblur del nombre y se pone a vacio el valor (o podriamos hacerlo en el resetearformusuario())
-        document.getElementById('nombre_persona').setAttribute('onblur', 'Gestion_personas.comprobar_nombre_persona()');
+        document.getElementById('nombre_persona').setAttribute('onblur', 'Gestion_libros.comprobar_nombre_persona()');
 
-        document.getElementById('apellidos_persona').setAttribute('onblur', 'Gestion_personas.comprobar_apellidos_persona()');
+        document.getElementById('apellidos_persona').setAttribute('onblur', 'Gestion_libros.comprobar_apellidos_persona()');
 
-        document.getElementById('fechaNacimiento_persona').setAttribute('onchange','Gestion_personas.comprobar_fechaNacimiento_persona()');
+        document.getElementById('fechaNacimiento_persona').setAttribute('onchange','Gestion_libros.comprobar_fechaNacimiento_persona()');
 
-        document.getElementById('direccion_persona').setAttribute('onblur','Gestion_personas.comprobar_direccion_persona()');
+        document.getElementById('direccion_persona').setAttribute('onblur','Gestion_libros.comprobar_direccion_persona()');
 
-        document.getElementById('telefono_persona').setAttribute('onblur','Gestion_personas.comprobar_telefono_persona()');
+        document.getElementById('telefono_persona').setAttribute('onblur','Gestion_libros.comprobar_telefono_persona()');
 
-        document.getElementById('email_persona').setAttribute('onblur','Gestion_personas.comprobar_email_persona()');
+        document.getElementById('email_persona').setAttribute('onblur','Gestion_libros.comprobar_email_persona()');
 
-        document.getElementById('nuevo_foto_persona').setAttribute('onblur','Gestion_personas.comprobar_nuevo_foto_persona()');
+        document.getElementById('nuevo_foto_persona').setAttribute('onblur','Gestion_libros.comprobar_nuevo_foto_persona()');
         document.getElementById("label_foto_persona").style.display = 'none';
         document.getElementById("foto_persona").style.display = 'none';
-        document.getElementById("link_foto_persona").style.display = 'none';
+        document.getElementById("link_foto_persona").style.display = 'none';        
     */
         
         let botonadd = document.createElement('button');
@@ -46,6 +47,20 @@ class Gestion_libros extends GestionEntidad{
         let imgadd = document.createElement('img');
         imgadd.src = './iconos/ADD.png';
         botonadd.append(imgadd);
+
+        const form = document.getElementById('IU_form')
+
+        /*
+        form.addEventListener("submit", function(e) {
+            //e.preventDefault();
+            let data = new FormData(form);
+            for (let [name,value] of data) {
+              value = "aaaaaaa"
+                //console.log(name, ":", value)
+            }
+          })
+        */
+
         document.getElementById('IU_form').append(botonadd);        
 
         // para actualizar idioma despues de incluir la imagen
@@ -65,40 +80,40 @@ class Gestion_libros extends GestionEntidad{
         document.querySelector(".class_contenido_titulo_form").className = "class_contenido_titulo_form titulo_form_EDIT_persona"; 
 
         // se rellena el action del formulario
-        document.getElementById('IU_form').action = 'javascript:Gestion_personas.EDIT();';
-        document.getElementById('IU_form').setAttribute('onsubmit', 'return Gestion_personas.comprobar_submit();');
+        document.getElementById('IU_form').action = 'javascript:Gestion_libros.EDIT();';
+        document.getElementById('IU_form').setAttribute('onsubmit', 'return Gestion_libros.comprobar_submit();');
 
         // se coloca el onblur del dni y se pone a vacio el valor (o podriamos hacerlo en el resetearformusuario())
-        document.getElementById('cod').setAttribute('onblur', 'Gestion_personas.comprobar_dni()');
+        document.getElementById('cod').setAttribute('onblur', 'Gestion_libros.comprobar_dni()');
         document.getElementById('cod').value = datostupla.CodigoL;
         document.getElementById('cod').setAttribute("readonly","");
 
         // se coloca el onblur del nombre y se pone a vacio el valor (o podriamos hacerlo en el resetearformusuario())
-        document.getElementById('nombre_persona').setAttribute('onblur', 'Gestion_personas.comprobar_nombre_persona()');
+        document.getElementById('nombre_persona').setAttribute('onblur', 'Gestion_libros.comprobar_nombre_persona()');
         document.getElementById('nombre_persona').value = datostupla.nombre_persona;
 
-        document.getElementById('apellidos_persona').setAttribute('onblur', 'Gestion_personas.comprobar_apellidos_persona()');
+        document.getElementById('apellidos_persona').setAttribute('onblur', 'Gestion_libros.comprobar_apellidos_persona()');
         document.getElementById('apellidos_persona').value = datostupla.apellidos_persona;
 
-        document.getElementById('fechaNacimiento_persona').setAttribute('onchange','Gestion_personas.comprobar_fechaNacimiento_persona()');
+        document.getElementById('fechaNacimiento_persona').setAttribute('onchange','Gestion_libros.comprobar_fechaNacimiento_persona()');
         document.getElementById('fechaNacimiento_persona').value = datostupla.fechaNacimiento_persona;
 
-        document.getElementById('direccion_persona').setAttribute('onblur','Gestion_personas.comprobar_direccion_persona()');
+        document.getElementById('direccion_persona').setAttribute('onblur','Gestion_libros.comprobar_direccion_persona()');
         document.getElementById('direccion_persona').value = datostupla.direccion_persona;
 
-        document.getElementById('telefono_persona').setAttribute('onblur','Gestion_personas.comprobar_telefono_persona()');
+        document.getElementById('telefono_persona').setAttribute('onblur','Gestion_libros.comprobar_telefono_persona()');
         document.getElementById('telefono_persona').value = datostupla.telefono_persona;
 
-        document.getElementById('email_persona').setAttribute('onblur','Gestion_personas.comprobar_email_persona()');
+        document.getElementById('email_persona').setAttribute('onblur','Gestion_libros.comprobar_email_persona()');
         document.getElementById('email_persona').value = datostupla.email_persona;
 
         document.getElementById('foto_persona').value = datostupla.foto_persona;
         document.getElementById('link_foto_persona').setAttribute('href','http://193.147.87.202/ET2/filesuploaded/files_foto_persona/'+foto_persona);
         document.getElementById('foto_persona').setAttribute("readonly",true);
 
-        document.getElementById('nuevo_foto_persona').setAttribute('onblur','Gestion_personas.comprobar_nuevo_foto_persona()');
+        document.getElementById('nuevo_foto_persona').setAttribute('onblur','Gestion_libros.comprobar_nuevo_foto_persona()');
         */
-       
+
         let botonedit = document.createElement('button');
         botonedit.type = 'submit';
         let imgedit = document.createElement('img');
@@ -122,7 +137,7 @@ class Gestion_libros extends GestionEntidad{
         document.querySelector(".class_contenido_titulo_form").className = "class_contenido_titulo_form titulo_form_DELETE_persona";
 
         // se rellena el action del formulario
-        document.getElementById('IU_form').action = 'javascript:Gestion_personas.DELETE();';
+        document.getElementById('IU_form').action = 'javascript:Gestion_libros.DELETE();';
 
         // se coloca el onblur del dni y se pone a vacio el valor (o podriamos hacerlo en el resetearformusuario())
         document.getElementById('cod').value = datostupla.dni;
@@ -203,26 +218,26 @@ class Gestion_libros extends GestionEntidad{
         document.querySelector(".class_contenido_titulo_form").className = "class_contenido_titulo_form titulo_form_SEARCH_persona";
 
         // se rellena el action del formulario
-        document.getElementById('IU_form').action = 'javascript:Gestion_personas.SEARCH();';
-        document.getElementById('IU_form').setAttribute('onsubmit', 'return Gestion_personas.comprobar_submit_SEARCH();');
+        document.getElementById('IU_form').action = 'javascript:Gestion_libros.SEARCH();';
+        document.getElementById('IU_form').setAttribute('onsubmit', 'return Gestion_libros.comprobar_submit_SEARCH();');
 
         // se coloca el onblur del dni y se pone a vacio el valor (o podriamos hacerlo en el resetear formusuario)
-        document.getElementById('cod').setAttribute('onblur', 'Gestion_personas.comprobar_dni_SEARCH()');
+        document.getElementById('cod').setAttribute('onblur', 'Gestion_libros.comprobar_dni_SEARCH()');
 
         // se coloca el onblur del nombre y se pone a vacio el valor (o podriamos hacerlo en el resetear formusuario
-        document.getElementById('nombre_persona').setAttribute('onblur', 'Gestion_personas.comprobar_nombre_persona_SEARCH()');
+        document.getElementById('nombre_persona').setAttribute('onblur', 'Gestion_libros.comprobar_nombre_persona_SEARCH()');
 
-        document.getElementById('apellidos_persona').setAttribute('onblur', 'Gestion_personas.comprobar_apellidos_persona_SEARCH()');
+        document.getElementById('apellidos_persona').setAttribute('onblur', 'Gestion_libros.comprobar_apellidos_persona_SEARCH()');
 
-        document.getElementById('fechaNacimiento_persona').setAttribute('onchange','Gestion_personas.comprobar_fechaNacimiento_persona_SEARCH()');
+        document.getElementById('fechaNacimiento_persona').setAttribute('onchange','Gestion_libros.comprobar_fechaNacimiento_persona_SEARCH()');
         
-        document.getElementById('direccion_persona').setAttribute('onblur','Gestion_personas.comprobar_direccion_persona_SEARCH()');
+        document.getElementById('direccion_persona').setAttribute('onblur','Gestion_libros.comprobar_direccion_persona_SEARCH()');
 
-        document.getElementById('telefono_persona').setAttribute('onblur','Gestion_personas.comprobar_telefono_persona_SEARCH()');
+        document.getElementById('telefono_persona').setAttribute('onblur','Gestion_libros.comprobar_telefono_persona_SEARCH()');
 
-        document.getElementById('email_persona').setAttribute('onblur','Gestion_personas.comprobar_email_persona_SEARCH()');
+        document.getElementById('email_persona').setAttribute('onblur','Gestion_libros.comprobar_email_persona_SEARCH()');
         
-        document.getElementById('foto_persona').setAttribute('onblur','Gestion_personas.comprobar_foto_persona_SEARCH()');
+        document.getElementById('foto_persona').setAttribute('onblur','Gestion_libros.comprobar_foto_persona_SEARCH()');
 
         document.getElementById("label_nuevo_foto_persona").style.display = 'none';
         document.getElementById("nuevo_foto_persona").style.display = 'none';
@@ -248,7 +263,9 @@ class Gestion_libros extends GestionEntidad{
     // submits
 
     static comprobar_submit(){
-
+        
+        debugger;
+        /*
         let valor = this.comprobar_dni();
         let valor1 = this.comprobar_nombre_persona();
         let valor2 = this.comprobar_apellidos_persona();
@@ -268,13 +285,16 @@ class Gestion_libros extends GestionEntidad{
             valor6 &&
             valor7
         );
-
+        */
+        //toDo
+        let resultado = true;
         return resultado;
         
     }
 
     static comprobar_submit_SEARCH(){
 
+        /*
         let valor = this.comprobar_dni_SEARCH();
         let valor1 = this.comprobar_nombre_persona_SEARCH();
         let valor2 = this.comprobar_apellidos_persona_SEARCH();
@@ -283,7 +303,8 @@ class Gestion_libros extends GestionEntidad{
         let valor5 = this.comprobar_email_persona_SEARCH();
         let valor6 = this.comprobar_direccion_persona_SEARCH();
         let valor7 = this.comprobar_nuevo_foto_persona_SEARCH();
-
+        
+        
         let resultado = (
             valor &&
             valor1 &&
@@ -294,7 +315,9 @@ class Gestion_libros extends GestionEntidad{
             valor6 &&
             valor7
         );
-
+        */
+        //toDo 
+        let resultado = true;     
         return resultado;
     }
 
@@ -567,7 +590,7 @@ class Gestion_libros extends GestionEntidad{
         
         <br>
         <label class="label_PagIni_libro"></label>
-        <input type='text' id='ISBN' name='ISBN'></input>
+        <input type='text' id='PagInil' name='PagInil'></input>
         <div id="div_error_direccion_persona" class="errorcampo"><a id="error_direccion_persona"></a></div>
         <br>
 
@@ -581,7 +604,7 @@ class Gestion_libros extends GestionEntidad{
         <div id="div_error_email_persona" class="errorcampo"><a id="error_email_persona"></a></div>
         
         <label class="label_fecha_libro"></label>
-        <input type='date' id='fechaNacimiento_persona' name='fechaNacimiento_persona'></input>
+        <input type='date' id='FechaPublicacionL' name='FechaPublicacionL'></input>
         <div id="div_error_telefono_persona" class="errorcampo"><a id="error_telefono_persona"></a></div>
 
         <label class="label_editor_libro"></label>
@@ -592,12 +615,10 @@ class Gestion_libros extends GestionEntidad{
         <input type='text' id='PaisEdicionL' name='PaisEdicionL'></input>
         <div id="div_error_email_persona" class="errorcampo"><a id="error_email_persona"></a></div>        
 
-        <br>
-        <label id="label_archivo_pdf" class="label_archivo_pdf">Foto Persona</label>
-        <input type='text' id='foto_persona' name='foto_persona'></input>
+        <br>        
         <a id="link_foto_persona" href="http://193.147.87.202/ET2/filesuploaded/files_foto_persona/"><img src="./iconos/FILE.png" /></a>
         <label id="label_nuevo_foto_persona" class="label_nuevo_foto_persona">Nueva Foto Persona</label>
-        <input type='file' id='nuevo_foto_persona' name='nuevo_foto_persona'></input>
+        <input type='file' id='archivopdfL' name='archivopdfL'></input>
         <div id="div_error_foto_persona" class="errorcampo"><a id="error_nuevo_foto_persona"></a></div>
         <br>
         
