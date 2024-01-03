@@ -31,17 +31,17 @@ let textos_ES={
 
     // label atributos libro
     
-    'label_cod_libro':'Introduzca código : ',
-    'label_autor_libro':'Introduzca Nombre : ',
+    'label_autor_libro':'Introduzca Autor : ',
     'label_titulo_libro':'Introduzca Título : ',
     'label_ISBN_libro':'Introduzca ISBN : ',
     'label_PagIni_libro':'Introduzca página inicial : ',
     'label_PagIfin_libro':'Introduzca página final : ',
     'label_volumen_libro':'Introduzca volumen : ',
+    'label_editorialL_libro':'Introduzca editorial : ',
     'label_editorial_libro':'Introduzca editorial : ',
     'label_fecha_libro':'Introduzca fecha : ',
     'label_editor_libro':'Introduzca editor : ',
-    'label_pais_edicion_libro':'edición : ',
+    'label_pais_edicion_libro':'Introduzca país edición : ',
     'label_archivo_pdf':'Introduzca pdf : ',
 
     // titulo general pagina persona
@@ -58,18 +58,48 @@ let textos_ES={
    
     // errores de formato de persona en front
 
-    // nombre_persona
-    "KO_nombre_persona_tam_min":"nombre persona peta minimo",
-    "KO_nombre_persona_tam_max":"nombre persona peta maximo",
+    // nombre_autor
+    "KO_autor_libro_tam_min":"nombre autor peta minimo",
+    "KO_autor_libro_tam_max":"nombre autor peta maximo",
 
-    // apellidos_persona
-    "KO_apellidos_persona_tam_min":"apellidos persona peta minimo",
-    "KO_apellidos_persona_tam_max":"apellidos persona peta maximo",
+    // titulo
+    "KO_titulo_libro_tam_min":"título peta minimo",
+    "KO_titulo_libro_tam_max":"título peta maximo",
 
-    // direccion_persona
-    "KO_direccion_persona_tam_min":"direccion persona peta minimo",
-    "KO_direccion_persona_tam_max":"direccion persona peta maximo",   
+    // ISBN
+    "KO_ISBN_tam_min":"ISBN peta minimo",
+    "KO_ISBN_tam_max":"ISBN peta maximo",   
 
+    //PagIniL
+    "KO_PagIniL_tam_min":"PagIni peta minimo",
+    "KO_PagFinL_tam_max":"PagFin peta maximo",
 
+    //PagFinL
+    "KO_PagFinL_tam_min":"PagFin peta minimo",
+    "KO_PagFinL_tam_max":"PagFin peta maximo",
+
+    //VolumenL
+    "KO_VolumenL_tam_min":"Volumen peta minimo",
+    "KO_VolumenL_tam_max":"Volumen peta maximo",
+
+    //EditorialL
+    "KO_EditorialL_tam_min":"Editorial peta minimo",
+    "KO_EditorialL_tam_max":"Editorial peta maximo",
+
+    //FechaPublicacionL
+    "KO_FechaPublicacionL_tam_min":"Fecha Publicacion peta minimo",
+    "KO_FechaPublicacionL_tam_max":"Fecha Publicacion peta maximo",
+
+    //EditorL
+    "KO_EditorL_tam_min":"Editor peta minimo",
+    "KO_EditorL_tam_max":"Editor peta maximo",
+
+    //PaisEdicionL
+    "KO_PaisEdicionL_tam_min":"Pais edicion peta minimo",
+    "KO_PaisEdicionL_tam_max":"Pais edicion peta maximo",
+
+    //archivopdfL
+    "KO_archivopdfL_tam_min":"Archivo pdf peta minimo",
+    "KO_archivopdfL_tam_max":"Archivo pdf peta maximo",
 };
 

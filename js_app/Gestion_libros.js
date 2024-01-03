@@ -19,28 +19,33 @@ class Gestion_libros extends GestionEntidad{
         document.getElementById('IU_form').action = 'javascript:Gestion_libros.ADD();';
         document.getElementById('IU_form').setAttribute('onsubmit', 'return Gestion_libros.comprobar_submit();');
         
-        /*
-        // se coloca el onblur del dni y se pone a vacio el valor (o podriamos hacerlo en el resetearformusuario())
-        document.getElementById('cod').setAttribute('onblur', 'Gestion_libros.comprobar_dni()');
-
+        // se coloca el onblur del autor y se pone a vacio el valor (o podriamos hacerlo en el resetearformusuario())
+        document.getElementById('AutoresL').setAttribute('onblur', 'Gestion_libros.comprobar_autor_libro()');
+        
         // se coloca el onblur del nombre y se pone a vacio el valor (o podriamos hacerlo en el resetearformusuario())
-        document.getElementById('nombre_persona').setAttribute('onblur', 'Gestion_libros.comprobar_nombre_persona()');
+        document.getElementById('TituloL').setAttribute('onblur', 'Gestion_libros.comprobar_titulo_libro()');
+                
+        document.getElementById('ISBN').setAttribute('onblur', 'Gestion_libros.comprobar_ISBN_libro()');
+        
+        //document.getElementById('PagIniL').setAttribute('onblur','Gestion_libros.comprobar_PagIniL_libro()');
 
-        document.getElementById('apellidos_persona').setAttribute('onblur', 'Gestion_libros.comprobar_apellidos_persona()');
+        document.getElementById('PagFinL').setAttribute('onblur','Gestion_libros.comprobar_PagFinL_libro()');
 
-        document.getElementById('fechaNacimiento_persona').setAttribute('onchange','Gestion_libros.comprobar_fechaNacimiento_persona()');
+        document.getElementById('VolumenL').setAttribute('onblur','Gestion_libros.comprobar_VolumenL_libro()');
 
-        document.getElementById('direccion_persona').setAttribute('onblur','Gestion_libros.comprobar_direccion_persona()');
+        //document.getElementById('EditorialL').setAttribute('onblur','Gestion_libros.comprobar_EditorialL_libro()');
 
-        document.getElementById('telefono_persona').setAttribute('onblur','Gestion_libros.comprobar_telefono_persona()');
+        document.getElementById('EditorL').setAttribute('onblur','Gestion_libros.comprobar_EditorL_libro()');
 
-        document.getElementById('email_persona').setAttribute('onblur','Gestion_libros.comprobar_email_persona()');
-
+        document.getElementById('PaisEdicionL').setAttribute('onblur','Gestion_libros.comprobar_PaisEdicionL_libro()');       
+        
+        //toDO
+        /*
         document.getElementById('nuevo_foto_persona').setAttribute('onblur','Gestion_libros.comprobar_nuevo_foto_persona()');
         document.getElementById("label_foto_persona").style.display = 'none';
         document.getElementById("foto_persona").style.display = 'none';
         document.getElementById("link_foto_persona").style.display = 'none';        
-    */
+        */
         
         let botonadd = document.createElement('button');
         botonadd.type = 'submit';
@@ -264,9 +269,8 @@ class Gestion_libros extends GestionEntidad{
 
     static comprobar_submit(){
         
-        debugger;
-        /*
-        let valor = this.comprobar_dni();
+        debugger;        
+        let valor = this.comprobar_autor_libro();
         let valor1 = this.comprobar_nombre_persona();
         let valor2 = this.comprobar_apellidos_persona();
         let valor3 = this.comprobar_fechaNacimiento_persona();
@@ -284,10 +288,8 @@ class Gestion_libros extends GestionEntidad{
             valor5 &&
             valor6 &&
             valor7
-        );
-        */
-        //toDo
-        let resultado = true;
+        );                
+        
         return resultado;
         
     }
@@ -379,10 +381,8 @@ class Gestion_libros extends GestionEntidad{
     //-----------------------------------------------------------------------------
     //validaciones campos
 
-    static comprobar_dni(){
-
+    static comprobar_dni(){       
         return true;
-
     }
 
     static comprobar_dni_SEARCH(){
@@ -391,33 +391,233 @@ class Gestion_libros extends GestionEntidad{
 
     }
 
-    static comprobar_nombre_persona(){
+    static comprobar_autor_libro(){
 
-       if (validacionesatomicas.size_minimo('nombre_persona',6)){
+       if (validacionesatomicas.size_minimo('AutoresL',6)){
         }
         else{
             //modificacion parametros texto error
-            DOM_class.mostrardivmensajeserrordebajo('nombre_persona','KO_nombre_persona_tam_min');
+            DOM_class.mostrardivmensajeserrordebajo('AutoresL','KO_autor_libro_tam_min');
             //salir ejecucion con false
             return false;
         }
 
-        if (validacionesatomicas.size_maximo('nombre_persona',50)){
+        if (validacionesatomicas.size_maximo('AutoresL',200)){
         }
         else{
             //modificacion parametros texto error
-            DOM_class.mostrardivmensajeserrordebajo('nombre_persona','KO_nombre_persona_tam_max');
+            DOM_class.mostrardivmensajeserrordebajo('AutoresL','KO_autor_libro_tam_max');
             //salir ejecucion con false
             return false;
         }
 
-        DOM_class.mostrarexitovalor('nombre_persona');
+        DOM_class.mostrarexitovalor('AutoresL');
         return true;
 
     }
 
-    static comprobar_nombre_persona_SEARCH(){
+    static comprobar_titulo_libro(){
 
+        if (validacionesatomicas.size_minimo('TituloL',10)){
+         }
+         else{
+             //modificacion parametros texto error
+             DOM_class.mostrardivmensajeserrordebajo('TituloL','KO_titulo_libro_tam_min');
+             //salir ejecucion con false
+             return false;
+         }
+ 
+         if (validacionesatomicas.size_maximo('TituloL',100)){
+         }
+         else{
+             //modificacion parametros texto error
+             DOM_class.mostrardivmensajeserrordebajo('TituloL','KO_titulo_libro_tam_max');
+             //salir ejecucion con false
+             return false;
+         }
+ 
+         DOM_class.mostrarexitovalor('TituloL');
+         return true;
+ 
+     }
+
+     static comprobar_ISBN_libro(){
+        debugger;
+        if (validacionesatomicas.size_minimo('ISBN',10)){
+         }
+         else{
+             //modificacion parametros texto error
+             DOM_class.mostrardivmensajeserrordebajo('ISBN','KO_ISBN_tam_min');
+             //salir ejecucion con false
+             return false;
+         }
+ 
+         if (validacionesatomicas.size_maximo('ISBN',13)){
+         }
+         else{
+             //modificacion parametros texto error
+             DOM_class.mostrardivmensajeserrordebajo('ISBN','KO_ISBN_tam_max');
+             //salir ejecucion con false
+             return false;
+         }
+ 
+         DOM_class.mostrarexitovalor('ISBN');
+         return true;
+ 
+     }
+
+     static comprobar_PagIniL_libro(){
+
+        if (validacionesatomicas.size_minimo('PagIniL',1)){
+         }
+         else{
+             //modificacion parametros texto error
+             DOM_class.mostrardivmensajeserrordebajo('PagIniL','KO_PagIniL_tam_min');
+             //salir ejecucion con false
+             return false;
+         }
+ 
+         if (validacionesatomicas.size_maximo('PagIniL',4)){
+         }
+         else{
+             //modificacion parametros texto error
+             DOM_class.mostrardivmensajeserrordebajo('PagIniL','KO_PagIniL_tam_max');
+             //salir ejecucion con false
+             return false;
+         }
+ 
+         DOM_class.mostrarexitovalor('PagIniL');
+         return true;
+ 
+     }
+
+     static comprobar_PagFinL_libro(){
+
+        if (validacionesatomicas.size_minimo('PagFinL',1)){
+         }
+         else{
+             //modificacion parametros texto error
+             DOM_class.mostrardivmensajeserrordebajo('PagFinL','KO_PagFinL_tam_min');
+             //salir ejecucion con false
+             return false;
+         }
+ 
+         if (validacionesatomicas.size_maximo('PagFinL',4)){
+         }
+         else{
+             //modificacion parametros texto error
+             DOM_class.mostrardivmensajeserrordebajo('PagFinL','KO_PagFinL_tam_max');
+             //salir ejecucion con false
+             return false;
+         }
+ 
+         DOM_class.mostrarexitovalor('PagFinL');
+         return true;
+ 
+     }
+
+     static comprobar_VolumenL_libro(){
+
+        if (validacionesatomicas.size_minimo('VolumenL',1)){
+         }
+         else{
+             //modificacion parametros texto error
+             DOM_class.mostrardivmensajeserrordebajo('VolumenL','KO_VolumenL_tam_min');
+             //salir ejecucion con false
+             return false;
+         }
+ 
+         if (validacionesatomicas.size_maximo('VolumenL',4)){
+         }
+         else{
+             //modificacion parametros texto error
+             DOM_class.mostrardivmensajeserrordebajo('VolumenL','KO_VolumenL_tam_max');
+             //salir ejecucion con false
+             return false;
+         }
+ 
+         DOM_class.mostrarexitovalor('VolumenL');
+         return true;
+ 
+     }
+
+     static comprobar_EditorialL_libro(){
+
+        if (validacionesatomicas.size_minimo('EditorialL',6)){
+         }
+         else{
+             //modificacion parametros texto error
+             DOM_class.mostrardivmensajeserrordebajo('EditorialL','KO_EditorialL_tam_min');
+             //salir ejecucion con false
+             return false;
+         }
+ 
+         if (validacionesatomicas.size_maximo('EditorialL',100)){
+         }
+         else{
+             //modificacion parametros texto error
+             DOM_class.mostrardivmensajeserrordebajo('EditorialL','KO_EditorialL_tam_max');
+             //salir ejecucion con false
+             return false;
+         }
+ 
+         DOM_class.mostrarexitovalor('EditorialL');
+         return true;
+ 
+     }
+
+     static comprobar_EditorL_libro(){
+
+        if (validacionesatomicas.size_minimo('EditorL',10)){
+         }
+         else{
+             //modificacion parametros texto error
+             DOM_class.mostrardivmensajeserrordebajo('EditorL','KO_EditorL_tam_min');
+             //salir ejecucion con false
+             return false;
+         }
+ 
+         if (validacionesatomicas.size_maximo('EditorL',100)){
+         }
+         else{
+             //modificacion parametros texto error
+             DOM_class.mostrardivmensajeserrordebajo('EditorL','KO_EditorL_tam_max');
+             //salir ejecucion con false
+             return false;
+         }
+ 
+         DOM_class.mostrarexitovalor('EditorL');
+         return true;
+ 
+     }
+
+     static comprobar_PaisEdicionL_libro(){
+
+        if (validacionesatomicas.size_minimo('PaisEdicionL',5)){
+         }
+         else{
+             //modificacion parametros texto error
+             DOM_class.mostrardivmensajeserrordebajo('PaisEdicionL','KO_PaisEdicionL_tam_min');
+             //salir ejecucion con false
+             return false;
+         }
+ 
+         if (validacionesatomicas.size_maximo('PaisEdicionL',20)){
+         }
+         else{
+             //modificacion parametros texto error
+             DOM_class.mostrardivmensajeserrordebajo('PaisEdicionL','KO_PaisEdicionL_tam_max');
+             //salir ejecucion con false
+             return false;
+         }
+ 
+         DOM_class.mostrarexitovalor('PaisEdicionL');
+         return true;
+ 
+     }
+
+    static comprobar_nombre_persona_SEARCH(){
+        debugger;
         if (validacionesatomicas.size_maximo('nombre_persona',50)){   
         }
         else{
@@ -567,53 +767,54 @@ class Gestion_libros extends GestionEntidad{
 
         document.getElementById("IU_form").innerHTML= '';
 
-        document.getElementById("IU_form").innerHTML=`
-
-        <label class="label_cod_libro"></label>
-        <input type='text' id='CodigoL' name='CodigoL'></input>
-        <div id="div_error_dni" class="errorcampo"><a id="error_dni"></a></div>
-        <br>
+        document.getElementById("IU_form").innerHTML=`        
         
         <label class="label_autor_libro">Autor</label>
         <input type='text' id='AutoresL' name='AutoresL'></input>
-        <div id="div_error_nombre_persona" class="errorcampo"><a id="error_nombre_persona"></a></div>
+        <div id="div_error_AutoresL" class="errorcampo"><a id="error_AutoresL"></a></div>
         <br>
         
         <label class="label_titulo_libro">títulooo</label>
         <input type='text' id='TituloL' name='TituloL'></input>
-        <div id="div_error_apellidos_persona" class="errorcampo"><a id="error_apellidos_persona"></a></div>
+        <div id="div_error_TituloL" class="errorcampo"><a id="error_TituloL"></a></div>
         <br>
         
         <label class="label_ISBN_libro">ISBN</label>
         <input type='text' id='ISBN' name='ISBN'></input>
-        <div id="div_error_fechaNacimiento_persona" class="errorcampo"><a id="error_fechaNacimiento_persona"></a></div>
+        <div id="div_error_ISBN" class="errorcampo"><a id="error_ISBN"></a></div>
         
         <br>
         <label class="label_PagIni_libro"></label>
         <input type='text' id='PagInil' name='PagInil'></input>
-        <div id="div_error_direccion_persona" class="errorcampo"><a id="error_direccion_persona"></a></div>
+        <div id="div_error_PagIni" class="errorcampo"><a id="error_PagIniL_libro"></a></div>
         <br>
 
         <label class="label_PagIfin_libro"></label>
         <input type='text' id='PagFinL' name='PagFinL'></input>
-        <div id="div_error_telefono_persona" class="errorcampo"><a id="error_telefono_persona"></a></div>
+        <div id="div_error_PagFinL" class="errorcampo"><a id="error_PagFinL"></a></div>
         
         <br>
         <label class="label_volumen_libro"></label>
         <input type='text' id='VolumenL' name='VolumenL'></input>
-        <div id="div_error_email_persona" class="errorcampo"><a id="error_email_persona"></a></div>
+        <div id="div_error_VolumenL" class="errorcampo"><a id="error_VolumenL"></a></div>                
+
+        <label class="label_editorialL_libro"></label>
+        <input type='text' id='EditorialL' name='EditorialL'></input>
+        <div id="div_error_EditorialL" class="errorcampo"><a id="error_EditorialL"></a></div>                
+        
+        <br>
         
         <label class="label_fecha_libro"></label>
         <input type='date' id='FechaPublicacionL' name='FechaPublicacionL'></input>
-        <div id="div_error_telefono_persona" class="errorcampo"><a id="error_telefono_persona"></a></div>
+        <div id="" class="errorcampo"><a id="error_telefono_persona"></a></div>
 
         <label class="label_editor_libro"></label>
         <input type='text' id='EditorL' name='EditorL'></input>
-        <div id="div_error_email_persona" class="errorcampo"><a id="error_email_persona"></a></div>
+        <div id="div_error_EditorL" class="errorcampo"><a id="error_EditorL"></a></div>
 
         <label class="label_pais_edicion_libro"></label>
         <input type='text' id='PaisEdicionL' name='PaisEdicionL'></input>
-        <div id="div_error_email_persona" class="errorcampo"><a id="error_email_persona"></a></div>        
+        <div id="div_error_email_persona" class="errorcampo"><a id="error_PaisEdicionL"></a></div>        
 
         <br>        
         <a id="link_foto_persona" href="http://193.147.87.202/ET2/filesuploaded/files_foto_persona/"><img src="./iconos/FILE.png" /></a>
