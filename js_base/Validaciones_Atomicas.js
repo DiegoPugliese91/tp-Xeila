@@ -4,15 +4,8 @@ class validacionesatomicas{
 
     }
 
-    static validar_dni(id,valor=null){
-        let dni = document.getElementById(id);
-        let condicion = true;
-        if (condicion) {
-            return true;
-        }
-        else{
-            return false;
-        }
+    static is_numeric(id){         
+        return (!isNaN(document.getElementById(id).value))
     }
 
     static size_minimo(id, valorminimo){

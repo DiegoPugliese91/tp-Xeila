@@ -23,7 +23,6 @@ class DOM_class{
 
     static mostrardivmensajeserrordebajo(id,codigoerror){
         //cambiar color bordes por el id
-        debugger;
         if (eval(document.getElementById('error_'+id))){
             document.getElementById('error_'+id).className = codigoerror;
             document.getElementById('error_'+id).style.color = 'red';
