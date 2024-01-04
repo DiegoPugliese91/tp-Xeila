@@ -26,9 +26,8 @@ class Gestion_libros extends GestionEntidad{
         document.getElementById('TituloL').setAttribute('onblur', 'Gestion_libros.comprobar_titulo_libro()');
                 
         document.getElementById('ISBN').setAttribute('onblur', 'Gestion_libros.comprobar_ISBN_libro()');
-        debugger;
-        let paginil = document.getElementById('PagIniL')
-        //.setAttribute('onblur','Gestion_libros.comprobar_PagIniL_libro()');
+
+        document.getElementById('PagIniL').setAttribute('onblur','Gestion_libros.comprobar_PagIniL_libro()');
 
         document.getElementById('PagFinL').setAttribute('onblur','Gestion_libros.comprobar_PagFinL_libro()');
 
@@ -93,7 +92,6 @@ class Gestion_libros extends GestionEntidad{
     }
 
     static createForm_DELETE(datostupla){
-        debugger;
         // resetear el formulario
         this.recargarform_search();
 
@@ -143,6 +141,8 @@ class Gestion_libros extends GestionEntidad{
     }
 
     static createForm_SEARCH(){
+        // se rellena el action del formulario
+        document.getElementById('IU_form').action = 'javascript:Gestion_libros.SEARCH();';
         // resetear el formulario
         this.recargarform_search();
         
@@ -159,9 +159,8 @@ class Gestion_libros extends GestionEntidad{
         document.getElementById('AutoresL').setAttribute('onblur', 'Gestion_libros.comprobar_autor_libro_search()');
 
         document.getElementById('ISBN').setAttribute('onblur', 'Gestion_libros.comprobar_ISBN_libro_search()');
-        debugger;
-        let paginil = document.getElementById('PagIniL')
-        //.setAttribute('onblur','Gestion_libros.comprobar_PagIniL_libro()');
+
+        document.getElementById('PagIniL').setAttribute('onblur','Gestion_libros.comprobar_PagIniL_libro()');
 
         document.getElementById('PagFinL').setAttribute('onblur','Gestion_libros.comprobar_PagFinL_libro_search()');
 
@@ -197,8 +196,8 @@ class Gestion_libros extends GestionEntidad{
         let valor1 = this.comprobar_autor_libro();
         let valor2 = this.comprobar_titulo_libro();
         let valor3 = this.comprobar_ISBN_libro();
-        //toDO
-        //let valor4 = this.comprobar_PagIniL_libro();
+        
+        let valor4 = this.comprobar_PagIniL_libro();
         let valor5 = this.comprobar_PagFinL_libro();
         let valor6 = this.comprobar_VolumenL_libro();
         let valor7 = this.comprobar_EditorialL_libro();
@@ -366,9 +365,8 @@ class Gestion_libros extends GestionEntidad{
      }
 
      static comprobar_PagIniL_libro_search(){
-        if (validacionesatomicas.is_numeric('PagIniL'))
-        {}
-        else{
+        if (!validacionesatomicas.is_numeric('PagIniL'))
+        {
             //modificacion parametros texto error
             DOM_class.mostrardivmensajeserrordebajo('PagIniL','KO_PagIniL_numeric');
             //salir ejecucion con false
@@ -380,9 +378,8 @@ class Gestion_libros extends GestionEntidad{
     }
 
     static comprobar_PagFinL_libro_search(){
-        if (validacionesatomicas.is_numeric('PagFinL'))
-        {}
-        else{
+        if (!validacionesatomicas.is_numeric('PagFinL'))
+        {
             //modificacion parametros texto error
             DOM_class.mostrardivmensajeserrordebajo('PagFinL','KO_PagFinL_numeric');
             //salir ejecucion con false
@@ -570,18 +567,16 @@ class Gestion_libros extends GestionEntidad{
 
      static comprobar_PagIniL_libro(){
  
-         if (validacionesatomicas.size_maximo('PagIniL',4)){
-         }
-         else{
+         if (!validacionesatomicas.size_maximo('PagIniL',4))
+         {
              //modificacion parametros texto error
              DOM_class.mostrardivmensajeserrordebajo('PagIniL','KO_PagIniL_tam_max');
              //salir ejecucion con false
              return false;
          }
 
-         if (validacionesatomicas.is_numeric('PagIniL'))
-         {}
-         else{
+         if (!validacionesatomicas.is_numeric('PagIniL'))
+         {
              //modificacion parametros texto error
              DOM_class.mostrardivmensajeserrordebajo('PagIniL','KO_PagIniL_numeric');
              //salir ejecucion con false
@@ -594,18 +589,16 @@ class Gestion_libros extends GestionEntidad{
      }
 
      static comprobar_PagFinL_libro(){         
-         if (validacionesatomicas.size_maximo('PagFinL',4))
-         {}
-         else{
+         if (!validacionesatomicas.size_maximo('PagFinL',4))
+         {
              //modificacion parametros texto error
              DOM_class.mostrardivmensajeserrordebajo('PagFinL','KO_PagFinL_tam_max');
              //salir ejecucion con false
              return false;
          }
 
-         if (validacionesatomicas.is_numeric('PagFinL'))
-         {}
-         else{
+         if (!validacionesatomicas.is_numeric('PagFinL'))
+         {
              //modificacion parametros texto error
              DOM_class.mostrardivmensajeserrordebajo('PagFinL','KO_PagFinL_numeric');
              //salir ejecucion con false
@@ -617,18 +610,16 @@ class Gestion_libros extends GestionEntidad{
      }
 
      static comprobar_VolumenL_libro(){
-        if (validacionesatomicas.is_numeric('VolumenL'))
-        {}
-        else{
+        if (!validacionesatomicas.is_numeric('VolumenL'))
+        {
             //modificacion parametros texto error
             DOM_class.mostrardivmensajeserrordebajo('VolumenL','KO_VolumenL_numeric');
             //salir ejecucion con false
             return false;
         }   
         
-         if (validacionesatomicas.size_maximo('VolumenL',4)){
-         }
-         else{
+         if (!validacionesatomicas.size_maximo('VolumenL',4))
+         {
              //modificacion parametros texto error
              DOM_class.mostrardivmensajeserrordebajo('VolumenL','KO_VolumenL_tam_max');
              //salir ejecucion con false
@@ -723,12 +714,12 @@ class Gestion_libros extends GestionEntidad{
         <div id="div_error_ISBN" class="errorcampo"><a id="error_ISBN"></a></div>
         <br>    
         
-        <label class="label_PagInil_libro"></label>
-        <input type='text' id='PagInil' name='PagInil'></input>
-        <div id="div_error_PagInil" class="errorcampo"><a id="error_PagIniL_libro"></a></div>
+        <label class="label_PagIniL_libro"></label>
+        <input type='text' id='PagIniL' name='PagIniL'></input>
+        <div id="div_error_PagIniL" class="errorcampo"><a id="error_PagIniL"></a></div>
         <br>
 
-        <label class="label_Pagfin_libro"></label>
+        <label class="label_PagFinL_libro"></label>
         <input type='text' id='PagFinL' name='PagFinL'></input>
         <div id="div_error_PagFinL" class="errorcampo"><a id="error_PagFinL"></a></div>
         
@@ -807,12 +798,12 @@ class Gestion_libros extends GestionEntidad{
         <div id="div_error_ISBN" class="errorcampo"><a id="error_ISBN"></a></div>
         <br>    
         
-        <label class="label_PagInil_libro"></label>
-        <input type='text' id='PagInil' name='PagInil'></input>
-        <div id="div_error_PagInil" class="errorcampo"><a id="error_PagIniL_libro"></a></div>
+        <label class="label_PagIniL_libro"></label>
+        <input type='text' id='PagIniL' name='PagIniL'></input>
+        <div id="div_error_PagIniL" class="errorcampo"><a id="error_PagIniL"></a></div>
         <br>
 
-        <label class="label_Pagfin_libro"></label>
+        <label class="label_PagFinL_libro"></label>
         <input type='text' id='PagFinL' name='PagFinL'></input>
         <div id="div_error_PagFinL" class="errorcampo"><a id="error_PagFinL"></a></div>
         

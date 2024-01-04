@@ -34,7 +34,7 @@ let textos_ES={
     'label_titulo_libro':'Introduzca Título : ',
     'label_ISBN_libro':'Introduzca ISBN : ',
     'label_PagIniL_libro':'Introduzca página inicial : ',
-    'label_Pagfin_libro':'Introduzca página final : ',
+    'label_PagFinL_libro':'Introduzca página final : ',
     'label_volumen_libro':'Introduzca volumen : ',
     'label_editorialL_libro':'Introduzca editorial : ',
     'label_editorial_libro':'Introduzca editorial : ',
@@ -73,7 +73,8 @@ let textos_ES={
     "KO_ISBN_tam_max":"ISBN peta maximo",   
 
     //PagIniL
-    "KO_PagFinL_tam_max":"PagFin peta maximo",
+    "KO_PagFinL_tam_max":"PagIni peta maximo",
+    "KO_PagIniL_numeric": "PagIni no numerico",
 
     //PagFinL
     "KO_PagFinL_tam_max":"PagFin peta maximo",
