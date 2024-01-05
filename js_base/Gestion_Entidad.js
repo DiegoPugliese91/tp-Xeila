@@ -219,9 +219,16 @@ class GestionEntidad {
             .done(res => {
                 resolve(res);
             })
-            .fail(res => {
-                alert('error : '+res.status);
-            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                // Aquí puedes obtener más detalles sobre el error
+                console.error('Error en la solicitud:', textStatus, errorThrown);
+            
+                // Mostrar un alert con detalles del error
+                alert('Error en la solicitud:\n' +
+                    'Status: ' + jqXHR.status + '\n' +
+                    'Status Text: ' + jqXHR.statusText + '\n' +
+                    'Response Text: ' + jqXHR.responseText);
+            });
     
         });
     

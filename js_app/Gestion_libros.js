@@ -74,8 +74,37 @@ class Gestion_libros extends GestionEntidad{
 
     static createForm_EDIT(datostupla){
         debugger;
+        //todo poner los onblur
         // resetear el formulario
-        this.recargarform();       
+        this.recargarform_search();       
+
+        // rellenar titulo formulario
+        document.querySelector(".class_contenido_titulo_form").className = "class_contenido_titulo_form titulo_form_DELETE_libro";
+
+        // se rellena el action del formulario
+        document.getElementById('IU_form').action = 'javascript:Gestion_libros.DELETE();';
+        
+        document.getElementById('CodigoL').value = datostupla.CodigoL;
+
+        document.getElementById('AutoresL').value = datostupla.AutoresL;
+        
+        document.getElementById('TituloL').value = datostupla.TituloL;
+
+        document.getElementById('ISBN').value = datostupla.ISBN;
+
+        document.getElementById('PagIniL').value = datostupla.PagIniL;
+
+        document.getElementById('PagFinL').value = datostupla.PagFinL;
+
+        document.getElementById('VolumenL').value = datostupla.VolumenL;
+
+        document.getElementById('EditorialL').value = datostupla.EditorialL;
+
+        document.getElementById('FechaPublicacionL').value = datostupla.CFechaPublicacionLodigoL;
+        
+        document.getElementById('EditorL').value = datostupla.EditorL;
+
+        document.getElementById('FechaPublicacionL').value = datostupla.FechaPublicacionL;
 
         let botonedit = document.createElement('button');
         botonedit.type = 'submit';
@@ -92,6 +121,7 @@ class Gestion_libros extends GestionEntidad{
     }
 
     static createForm_DELETE(datostupla){
+        debugger;
         // resetear el formulario
         this.recargarform_search();
 
@@ -102,8 +132,42 @@ class Gestion_libros extends GestionEntidad{
         document.getElementById('IU_form').action = 'javascript:Gestion_libros.DELETE();';
         
         document.getElementById('CodigoL').value = datostupla.CodigoL;
-        document.getElementById('CodigoL').setAttribute('readonly',true);        
+        document.getElementById('CodigoL').setAttribute('readonly',true); 
+
+        document.getElementById('AutoresL').value = datostupla.AutoresL;
+        document.getElementById('AutoresL').setAttribute('readonly',true);
+                
+        document.getElementById('TituloL').value = datostupla.TituloL;
+        document.getElementById('TituloL').setAttribute('readonly',true); 
+
+        document.getElementById('ISBN').value = datostupla.ISBN;
+        document.getElementById('ISBN').setAttribute('readonly',true); 
+
+        document.getElementById('PagIniL').value = datostupla.PagIniL;
+        document.getElementById('PagIniL').setAttribute('readonly',true); 
+
+        document.getElementById('PagFinL').value = datostupla.PagFinL;
+        document.getElementById('PagFinL').setAttribute('readonly',true); 
+
+        document.getElementById('VolumenL').value = datostupla.VolumenL;
+        document.getElementById('VolumenL').setAttribute('readonly',true); 
+
+        document.getElementById('EditorialL').value = datostupla.EditorialL;
+        document.getElementById('EditorialL').setAttribute('readonly',true); 
+
+        document.getElementById('FechaPublicacionL').value = datostupla.CFechaPublicacionLodigoL;
+        document.getElementById('FechaPublicacionL').setAttribute('readonly',true); 
         
+        document.getElementById('EditorL').value = datostupla.EditorL;
+        document.getElementById('EditorL').setAttribute('readonly',true); 
+
+        document.getElementById('FechaPublicacionL').value = datostupla.FechaPublicacionL;
+        document.getElementById('FechaPublicacionL').setAttribute('readonly',true); 
+
+        /*
+        document.getElementById('archivopdfL').value = datostupla.archivopdfL;
+        document.getElementById('archivopdfL').setAttribute('readonly',true); 
+        */
 
         let botondelete = document.createElement('button');
         botondelete.id = 'botondelete';
@@ -217,8 +281,8 @@ class Gestion_libros extends GestionEntidad{
             valor7 &&
             valor8 && 
             valor9 &&
-            valor10 &&
-            valor11
+            valor10 
+            //valor11
         );                
         
         return resultado;
@@ -365,6 +429,15 @@ class Gestion_libros extends GestionEntidad{
      }
 
      static comprobar_PagIniL_libro_search(){
+        if (validacionesatomicas.size_maximo('PagIniL',4)){
+        }
+        else{
+            //modificacion parametros texto error
+            DOM_class.mostrardivmensajeserrordebajo('ISBN','KO_PagIniL_tam_max');
+            //salir ejecucion con false
+            return false;
+        }
+
         if (!validacionesatomicas.is_numeric('PagIniL'))
         {
             //modificacion parametros texto error
@@ -378,6 +451,15 @@ class Gestion_libros extends GestionEntidad{
     }
 
     static comprobar_PagFinL_libro_search(){
+        if (validacionesatomicas.size_maximo('PagFinL',4)){
+        }
+        else{
+            //modificacion parametros texto error
+            DOM_class.mostrardivmensajeserrordebajo('PagFinL','KO_PagFinL_tam_max');
+            //salir ejecucion con false
+            return false;
+        }
+
         if (!validacionesatomicas.is_numeric('PagFinL'))
         {
             //modificacion parametros texto error
@@ -455,6 +537,16 @@ class Gestion_libros extends GestionEntidad{
             //salir ejecucion con false
             return false;
         }
+
+        if (validacionesatomicas.fecha_mayor_hoy('FechaPublicacionL')){
+        }
+        else{
+            //modificacion parametros texto error
+            DOM_class.mostrardivmensajeserrordebajo('FechaPublicacionL','KO_FechaPublicacionL_mayor_hoy');
+            //salir ejecucion con false
+            return false;
+        }
+
 
         DOM_class.mostrarexitovalor('FechaPublicacionL');
         return true;
@@ -542,6 +634,14 @@ class Gestion_libros extends GestionEntidad{
      }
 
      static comprobar_ISBN_libro(){
+        if (!validacionesatomicas.is_numeric('ISBN'))
+        {
+            //modificacion parametros texto error
+            DOM_class.mostrardivmensajeserrordebajo('ISBN','KO_ISBN_numeric');
+            //salir ejecucion con false
+            return false;
+        }
+
         if (validacionesatomicas.size_minimo('ISBN',13)){
          }
          else{
