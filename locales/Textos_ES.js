@@ -13,23 +13,23 @@ let textos_ES={
     // mensajes de la entidad persona
     // ---------------------------------
 
-    // atributos lirbos (usados en el titulo de la tabla de presentación de datos)
+    // atributos libros (usados en el titulo de la tabla de presentación de datos)
 
-    'CodigoL':'Codigo',
+    "CodigoL":"Código",
     'AutoresL':'Autor',
     'TituloL':'Título',
     'ISBN':'ISBN',
-    'PagIniL':'Pag inicial',
-    'PagFinL':'Pag Final',
-    'VolumenL':'VolumenL',
+    'PagIniL':'Pág. Inicial',
+    'PagFinL':'Pág. Final',
+    'VolumenL':'Volumen',
     'EditorialL':'Editorial',
-    'FechaPublicacionL':'FechaPublicacionL',
+    'FechaPublicacionL':'F. Publicacion',
     'EditorL':'Editor',
     'PaisEdicionL':'País edición',
-    'archivopdfL':'archivo PDF',
+    'archivopdfL':'Archivo PDF',
 
     // label atributos libro
-    
+    'label_codigo': 'Codigo: ',
     'label_autor_libro':'Introduzca Autor : ',
     'label_titulo_libro':'Introduzca Título : ',
     'label_ISBN_libro':'Introduzca ISBN : ',
@@ -49,58 +49,21 @@ let textos_ES={
 
     // titulos formularios acciones
 
-    "titulo_form_ADD_persona":"Incorporar un libro",
-    "titulo_form_EDIT_persona":"Modicar persona",
-    "titulo_form_DELETE_persona":"Confirmar borrar una persona",
-    "titulo_form_SEARCH_persona":"Buscar un libro",
+    "titulo_form_ADD_libro":"Incorporar un libro",
+    "titulo_form_EDIT_libro":"Modicar un libro",
+    "titulo_form_DELETE_libro":"Confirmar borrar un libro",
+    "titulo_form_SEARCH_libro":"Buscar un libro",
     "titulo_form_SHOWCURRENT_libro":"Ver detalle de un libro",
    
-    // errores de formato de persona en front
-
-    //CodigoL(search)
-    "KO_Codigol_numeric":"código no numérico",
-
-    // nombre_autor
-    "KO_autor_libro_tam_min":"nombre autor peta minimo",
-    "KO_autor_libro_tam_max":"nombre autor peta maximo",
-
-    // titulo
-    "KO_titulo_libro_tam_min":"título peta minimo",
-    "KO_titulo_libro_tam_max":"título peta maximo",
-
-    // ISBN
-    "KO_ISBN_tam_min":"ISBN peta minimo",
-    "KO_ISBN_tam_max":"ISBN peta maximo",   
-
-    //PagIniL
-    "KO_PagFinL_tam_max":"PagIni peta maximo",
-    "KO_PagIniL_numeric": "PagIni no numerico",
-
-    //PagFinL
-    "KO_PagFinL_tam_max":"PagFin peta maximo",
-    "KO_PagFinL_numeric":"PagFin no numérico",    
-
-    //VolumenL
-    "KO_VolumenL_tam_max":"Volumen peta maximo",
-    "KO_VolumenL_numeric":"Volumen no numérico",    
-
-    //EditorialL
-    "KO_EditorialL_tam_min":"Editorial peta minimo",
-    "KO_EditorialL_tam_max":"Editorial peta maximo",
-
-    //FechaPublicacionL
-    "KO_FechaPublicacionL_tam_min":"Fecha Publicacion peta minimo",
-
-    //EditorL
-    "KO_EditorL_tam_min":"Editor peta minimo",
-    "KO_EditorL_tam_max":"Editor peta maximo",
-
-    //PaisEdicionL
-    "KO_PaisEdicionL_tam_min":"Pais edicion peta minimo",
-    "KO_PaisEdicionL_tam_max":"Pais edicion peta maximo",
-
-    //archivopdfL
-    "KO_archivopdfL_tam_min":"Archivo pdf peta minimo",
-    "KO_archivopdfL_tam_max":"Archivo pdf peta maximo",
+    "KO_form_errors": "Revisa los errores existentes en el formulario",
+    // errores de formato de libro en front
+    "KO_is_numeric": " no numérico.",
+    "KO_size_minimo":" size peta mínimo.",
+    "KO_size_maximo": " size peta máximo.",
+    "KO_is_required": " es requerido.",
+    "KO_valor_minimo":" valor peta mínimo.",
+    "KO_valor_maximo": " valor peta máximo.",
+    "KO_mayor_que":" menor al campo relacionado.",
+    "KO_menor_que": " mayor al campo relacionado.",
 };
 
