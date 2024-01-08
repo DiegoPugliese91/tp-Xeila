@@ -20,26 +20,26 @@ class Gestion_libros extends GestionEntidad{
         document.getElementById('IU_form').setAttribute('onsubmit', 'return Gestion_libros.comprobar_submit();');
         
         // se coloca el onblur del autor y se pone a vacio el valor (o podriamos hacerlo en el resetearformusuario())
-        document.getElementById('AutoresL').setAttribute('onblur', 'Gestion_libros.comprobar_autor_libro()');
+        document.getElementById('AutoresL').setAttribute('onblur', 'Gestion_libros.comprobar_AutoresL()');
         
         // se coloca el onblur del nombre y se pone a vacio el valor (o podriamos hacerlo en el resetearformusuario())
-        document.getElementById('TituloL').setAttribute('onblur', 'Gestion_libros.comprobar_titulo_libro()');
+        document.getElementById('TituloL').setAttribute('onblur', 'Gestion_libros.comprobar_titulo()');
                 
-        document.getElementById('ISBN').setAttribute('onblur', 'Gestion_libros.comprobar_ISBN_libro()');
+        document.getElementById('ISBN').setAttribute('onblur', 'Gestion_libros.comprobar_ISBN()');
 
-        document.getElementById('PagIniL').setAttribute('onblur','Gestion_libros.comprobar_PagIniL_libro()');
+        document.getElementById('PagIniL').setAttribute('onblur','Gestion_libros.comprobar_PagIniL()');
 
-        document.getElementById('PagFinL').setAttribute('onblur','Gestion_libros.comprobar_PagFinL_libro()');
+        document.getElementById('PagFinL').setAttribute('onblur','Gestion_libros.comprobar_PagFinL()');
 
-        document.getElementById('VolumenL').setAttribute('onblur','Gestion_libros.comprobar_VolumenL_libro()');
+        document.getElementById('VolumenL').setAttribute('onblur','Gestion_libros.comprobar_VolumenL()');
 
-        document.getElementById('FechaPublicacionL').setAttribute('onblur','Gestion_libros.comprobar_FechaPublicacionL_libro()');
+        document.getElementById('FechaPublicacionL').setAttribute('onblur','Gestion_libros.comprobar_FechaPublicacionL()');
 
-        document.getElementById('EditorialL').setAttribute('onblur','Gestion_libros.comprobar_EditorialL_libro()');
+        document.getElementById('EditorialL').setAttribute('onblur','Gestion_libros.comprobar_EditorialL()');
 
-        document.getElementById('EditorL').setAttribute('onblur','Gestion_libros.comprobar_EditorL_libro()');
+        document.getElementById('EditorL').setAttribute('onblur','Gestion_libros.comprobar_EditorL()');
 
-        document.getElementById('PaisEdicionL').setAttribute('onblur','Gestion_libros.comprobar_PaisEdicionL_libro()');       
+        document.getElementById('PaisEdicionL').setAttribute('onblur','Gestion_libros.comprobar_PaisEdicionL()');       
         
         //toDO    
         
@@ -50,17 +50,6 @@ class Gestion_libros extends GestionEntidad{
         botonadd.append(imgadd);
 
         const form = document.getElementById('IU_form')
-
-        /*
-        form.addEventListener("submit", function(e) {
-            //e.preventDefault();
-            let data = new FormData(form);
-            for (let [name,value] of data) {
-              value = "aaaaaaa"
-                //console.log(name, ":", value)
-            }
-          })
-        */
 
         document.getElementById('IU_form').append(botonadd);        
 
@@ -79,32 +68,36 @@ class Gestion_libros extends GestionEntidad{
         this.recargarform_search();       
 
         // rellenar titulo formulario
-        document.querySelector(".class_contenido_titulo_form").className = "class_contenido_titulo_form titulo_form_DELETE_libro";
+        document.querySelector(".class_contenido_titulo_form").className = "class_contenido_titulo_form titulo_form_EDIT_libro";
 
         // se rellena el action del formulario
-        document.getElementById('IU_form').action = 'javascript:Gestion_libros.DELETE();';
+        document.getElementById('IU_form').action = 'javascript:Gestion_libros.EDIT();';
         
         document.getElementById('CodigoL').value = datostupla.CodigoL;
-
+        document.getElementById('CodigoL').setAttribute("readonly","");
         document.getElementById('AutoresL').value = datostupla.AutoresL;
-        
         document.getElementById('TituloL').value = datostupla.TituloL;
-
         document.getElementById('ISBN').value = datostupla.ISBN;
-
         document.getElementById('PagIniL').value = datostupla.PagIniL;
-
         document.getElementById('PagFinL').value = datostupla.PagFinL;
-
         document.getElementById('VolumenL').value = datostupla.VolumenL;
-
         document.getElementById('EditorialL').value = datostupla.EditorialL;
-
         document.getElementById('FechaPublicacionL').value = datostupla.CFechaPublicacionLodigoL;
-        
         document.getElementById('EditorL').value = datostupla.EditorL;
-
         document.getElementById('FechaPublicacionL').value = datostupla.FechaPublicacionL;
+
+         // se coloca el onblur del autor y se pone a vacio el valor (o podriamos hacerlo en el resetearformusuario())
+         document.getElementById('AutoresL').setAttribute('onblur', 'Gestion_libros.comprobar_AutoresL()');        
+         // se coloca el onblur del nombre y se pone a vacio el valor (o podriamos hacerlo en el resetearformusuario())
+         document.getElementById('TituloL').setAttribute('onblur', 'Gestion_libros.comprobar_titulo()');        
+         document.getElementById('ISBN').setAttribute('onblur', 'Gestion_libros.comprobar_ISBN()'); 
+         document.getElementById('PagIniL').setAttribute('onblur','Gestion_libros.comprobar_PagIniL'); 
+         document.getElementById('PagFinL').setAttribute('onblur','Gestion_libros.comprobar_PagFinL'); 
+         document.getElementById('VolumenL').setAttribute('onblur','Gestion_libros.comprobar_VolumenL'); 
+         document.getElementById('FechaPublicacionL').setAttribute('onblur','Gestion_libros.comprobar_FechaPublicacionL');
+         document.getElementById('EditorialL').setAttribute('onblur','Gestion_libros.comprobar_EditorialL'); 
+         document.getElementById('EditorL').setAttribute('onblur','Gestion_libros.comprobar_EditorL'); 
+         document.getElementById('PaisEdicionL').setAttribute('onblur','Gestion_libros.comprobar_PaisEdicionL');       
 
         let botonedit = document.createElement('button');
         botonedit.type = 'submit';
@@ -164,6 +157,9 @@ class Gestion_libros extends GestionEntidad{
         document.getElementById('FechaPublicacionL').value = datostupla.FechaPublicacionL;
         document.getElementById('FechaPublicacionL').setAttribute('readonly',true); 
 
+        document.getElementById('PaisEdicionL').value = datostupla.PaisEdicionL;
+        document.getElementById('PaisEdicionL').setAttribute('readonly',true); 
+
         /*
         document.getElementById('archivopdfL').value = datostupla.archivopdfL;
         document.getElementById('archivopdfL').setAttribute('readonly',true); 
@@ -188,7 +184,7 @@ class Gestion_libros extends GestionEntidad{
         debugger;
         // reutilizo la creación del delete porque me implica pocas modificaciones
         this.createForm_DELETE(datostupla);
-        
+        document.querySelector(".class_contenido_titulo_form").className = "class_contenido_titulo_form titulo_form_SHOWCURRENT_libro";
         // eliminar boton delete del form DELETE
         document.getElementById('botondelete').remove();
         
@@ -200,8 +196,6 @@ class Gestion_libros extends GestionEntidad{
 
         // para actualizar el idioma
         setLang();
-
-
     }
 
     static createForm_SEARCH(){
@@ -224,7 +218,7 @@ class Gestion_libros extends GestionEntidad{
 
         document.getElementById('ISBN').setAttribute('onblur', 'Gestion_libros.comprobar_ISBN_libro_search()');
 
-        document.getElementById('PagIniL').setAttribute('onblur','Gestion_libros.comprobar_PagIniL_libro()');
+        document.getElementById('PagIniL').setAttribute('onblur','Gestion_libros.comprobar_PagIniL_libro_search()');
 
         document.getElementById('PagFinL').setAttribute('onblur','Gestion_libros.comprobar_PagFinL_libro_search()');
 
@@ -257,17 +251,16 @@ class Gestion_libros extends GestionEntidad{
     // submits
 
     static comprobar_submit(){                
-        let valor1 = this.comprobar_autor_libro();
-        let valor2 = this.comprobar_titulo_libro();
-        let valor3 = this.comprobar_ISBN_libro();
-        
-        let valor4 = this.comprobar_PagIniL_libro();
-        let valor5 = this.comprobar_PagFinL_libro();
-        let valor6 = this.comprobar_VolumenL_libro();
-        let valor7 = this.comprobar_EditorialL_libro();
-        let valor8 = this.comprobar_FechaPublicacionL_libro();
-        let valor9 = this.comprobar_EditorL_libro();
-        let valor10 = this.comprobar_PaisEdicionL_libro();
+        let valor1 = this.comprobar_AutoresL();
+        let valor2 = this.comprobar_titulo();
+        let valor3 = this.comprobar_ISBN();        
+        let valor4 = this.comprobar_PagIniL();
+        let valor5 = this.comprobar_PagFinL();
+        let valor6 = this.comprobar_VolumenL();
+        let valor7 = this.comprobar_EditorialL();
+        let valor8 = this.comprobar_FechaPublicacionL();
+        let valor9 = this.comprobar_EditorL();
+        let valor10 = this.comprobar_PaisEdicionL();
         //todo
         //let valor11 = this.comprobar_archivo_pdf_persona();
 
@@ -289,8 +282,7 @@ class Gestion_libros extends GestionEntidad{
         
     }
 
-    static comprobar_submit_SEARCH(){
-        debugger;        
+    static comprobar_submit_SEARCH(){  
         let valor = this.comprobar_autor_libro_SEARCH();
         let valor1 = this.comprobar_titulo_libro_SEARCH();
         let valor2 = this.comprobar_comprobar_ISBN_libro_SEARCH();
@@ -528,7 +520,7 @@ class Gestion_libros extends GestionEntidad{
 
     }
 
-    static comprobar_FechaPublicacionL_libro(){                 
+    static comprobar_FechaPublicacionL(){                 
         if (validacionesatomicas.size_minimo('FechaPublicacionL',10)){
         }
         else{
@@ -583,9 +575,9 @@ class Gestion_libros extends GestionEntidad{
  
      }
 
-    static comprobar_autor_libro(){
+    static comprobar_AutoresL(){
 
-       if (validacionesatomicas.size_minimo('AutoresL',6)){
+       if (validacionesatomicas.size_minimo('AutoresL',4)){
         }
         else{
             //modificacion parametros texto error
@@ -608,9 +600,9 @@ class Gestion_libros extends GestionEntidad{
 
     }
 
-    static comprobar_titulo_libro(){
+    static comprobar_titulo(){
 
-        if (validacionesatomicas.size_minimo('TituloL',10)){
+        if (validacionesatomicas.size_minimo('TituloL',4)){
          }
          else{
              //modificacion parametros texto error
@@ -633,7 +625,7 @@ class Gestion_libros extends GestionEntidad{
  
      }
 
-     static comprobar_ISBN_libro(){
+     static comprobar_ISBN(){
         if (!validacionesatomicas.is_numeric('ISBN'))
         {
             //modificacion parametros texto error
@@ -665,7 +657,7 @@ class Gestion_libros extends GestionEntidad{
  
      }
 
-     static comprobar_PagIniL_libro(){
+     static comprobar_PagIniL(){
  
          if (!validacionesatomicas.size_maximo('PagIniL',4))
          {
@@ -688,7 +680,7 @@ class Gestion_libros extends GestionEntidad{
  
      }
 
-     static comprobar_PagFinL_libro(){         
+     static comprobar_PagFinL(){         
          if (!validacionesatomicas.size_maximo('PagFinL',4))
          {
              //modificacion parametros texto error
@@ -709,7 +701,8 @@ class Gestion_libros extends GestionEntidad{
          return true; 
      }
 
-     static comprobar_VolumenL_libro(){
+     static comprobar_VolumenL(){
+        debugger;
         if (!validacionesatomicas.is_numeric('VolumenL'))
         {
             //modificacion parametros texto error
@@ -731,7 +724,7 @@ class Gestion_libros extends GestionEntidad{
  
      }
 
-     static comprobar_EditorialL_libro(){        
+     static comprobar_EditorialL(){        
  
          if (validacionesatomicas.size_maximo('EditorialL',100)){
          }
@@ -752,7 +745,7 @@ class Gestion_libros extends GestionEntidad{
         return true;                 
     }
 
-     static comprobar_EditorL_libro(){
+     static comprobar_EditorL(){
          
          if (validacionesatomicas.size_maximo('EditorL',100)){
          }
@@ -768,9 +761,9 @@ class Gestion_libros extends GestionEntidad{
  
      }
 
-     static comprobar_PaisEdicionL_libro(){
+     static comprobar_PaisEdicionL(){
 
-        if (validacionesatomicas.size_minimo('PaisEdicionL',5)){
+        if (validacionesatomicas.size_minimo('PaisEdicionL',2)){
          }
          else{
              //modificacion parametros texto error

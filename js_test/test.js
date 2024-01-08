@@ -18,6 +18,7 @@ function devolverdeftest(numdeftest){
 };
 
 function probar(prueba){
+    debugger;
     let resulttest;
     if (!eval(document.getElementById(prueba[2]))){
         let nuevoelemento = document.createElement('input');
