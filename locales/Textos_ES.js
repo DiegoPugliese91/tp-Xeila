@@ -26,7 +26,7 @@ let textos_ES={
     'FechaPublicacionL':'FechaPublicacionL',
     'EditorL':'Editor',
     'PaisEdicionL':'País edición',
-    'archivopdfL':'archivo PDF',
+    'archivopdfL':'Archivo PDF',
 
     // label atributos libro
     
@@ -41,7 +41,8 @@ let textos_ES={
     'label_fecha_libro':'Introduzca fecha : ',
     'label_editor_libro':'Introduzca editor : ',
     'label_pais_edicion_libro':'Introduzca país edición : ',
-    'label_archivo_pdf':'Introduzca pdf : ',
+    'label_archivopdfL':'Archivo PDF : ',
+    'label_nuevo_archivopdfL':'Nuevo Archivo PDF : ',
 
     // titulo general pagina persona
     
@@ -101,7 +102,59 @@ let textos_ES={
     "KO_PaisEdicionL_tam_max":"Pais edicion peta maximo",
 
     //archivopdfL
-    "KO_archivopdfL_tam_min":"Archivo pdf peta minimo",
-    "KO_archivopdfL_tam_max":"Archivo pdf peta maximo",
+    "KO_archivopdfL_formato": "Solo se permiten .pdf",
+    "KO_archivopdfL_nom_max":"Archivo pdf peta largo nombre",
+    "KO_archivopdfL_tam_max":"Archivo pdf peta tamaño maximo",
+
+
+    // atributos persona (usados en el titulo de la tabla de presentación de datos)
+
+    'dni':'Identificación',
+    'nombre_persona':'Nombre Persona',
+    'apellidos_persona':'Apellidos Persona',
+    'fechaNacimiento_persona':'Fec. Nacimiento Persona',
+    'direccion_persona':'Direccion Persona',
+    'telefono_persona':'Teléfono Persona',
+    'email_persona':'Correo-e Persona',
+    'foto_persona':'Foto Persona',
+
+    // label atributos persona
+    
+    'label_dni':'Introduzca Identificación : ',
+    'label_nombre_persona':'Introduzca Nombre : ',
+    'label_apellidos_persona':'Introduzca Apellidos : ',
+    'label_fechaNacimiento_persona':'Introduzca Fecha Nacimiento : ',
+    'label_direccion_persona':'Introduzca Direccion Postal : ',
+    'label_telefono_persona':'Introduzca Teléfono : ',
+    'label_email_persona':'Introduzca Correo-e : ',
+    'label_foto_persona':'Foto Persona : ',
+    'label_nuevo_foto_persona':'Introduzca Nueva Foto : ',
+
+    // titulo general pagina persona
+    
+    'titulo_pagina_personas':'Gestión de Personas',
+
+    // titulos formularios acciones
+
+    "titulo_form_ADD_persona":"Incorporar una persona",
+    "titulo_form_EDIT_persona":"Modicar persona",
+    "titulo_form_DELETE_persona":"Confirmar borrar una persona",
+    "titulo_form_SEARCH_persona":"Buscar una persona",
+    "titulo_form_SHOWCURRENT_persona":"Ver detalle de una persona",
+   
+    // errores de formato de persona en front
+
+    // nombre_persona
+    "KO_nombre_persona_tam_min":"nombre persona peta minimo",
+    "KO_nombre_persona_tam_max":"nombre persona peta maximo",
+
+    // apellidos_persona
+    "KO_apellidos_persona_tam_min":"apellidos persona peta minimo",
+    "KO_apellidos_persona_tam_max":"apellidos persona peta maximo",
+
+    // direccion_persona
+    "KO_direccion_persona_tam_min":"direccion persona peta minimo",
+    "KO_direccion_persona_tam_max":"direccion persona peta maximo",   
+
 };
 
